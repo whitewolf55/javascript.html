@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fibonacci în interval</title>
+</head>
+<body>
+  <h1>Fibonacci între două numere</h1>
+  <script>
+    function getFibonacciInRange(n1, n2) {
+      let a = 0, b = 1;
+      const result = [];
+
+      while (a <= n2) {
+        if (a >= n1) {
+          result.push(a);
+        }
+        [a, b] = [b, a + b];
+      }
+
+      return result;
+    }
+
+    const n1 = parseInt(prompt("Introduceți n1:"));
+    const n2 = parseInt(prompt("Introduceți n2:"));
+
+    if (!isNaN(n1) && !isNaN(n2)) {
+      const fibNumbers = getFibonacciInRange(Math.min(n1, n2), Math.max(n1, n2));
+      alert("Numerele Fibonacci din interval sunt: " + fibNumbers.join(", "));
+    } else {
+      alert("Vă rugăm introduceți numere valide.");
+    }
+  </script>
+</body>
+</html>
